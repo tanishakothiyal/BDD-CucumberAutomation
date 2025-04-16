@@ -26,6 +26,5 @@ public class LoginSteps {
     @Then("User should be logged in and see their dashboard")
     public void user_should_see_dashboard() {
         assertTrue(driver.getPageSource().contains("My Account") || driver.getCurrentUrl().contains("customer/account"));
-        driver.quit();
     }
 }

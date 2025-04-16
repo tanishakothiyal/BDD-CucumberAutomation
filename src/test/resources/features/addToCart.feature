@@ -1,11 +1,18 @@
-Feature: Add to Cart Functionality
+Feature: Add to cart with product variants
 
-  Scenario: User selects colour and size and adds product to cart
-    Given User should be on the account page
-    When User navigates to the homepage
-    And User selects a product from the listing
-    And User selects size "M"
-    And User selects color "Blue"
-    And User clicks on Add to Cart button
-    Then Product should be added with color "Blue" and size "M"
-    And Cart icon should show 1 item
+  As a customer
+  I want to select product variants like colour and size
+  So that I can add the specific product I want to the cart
+
+  Scenario Outline: User selects colour and size and adds product to cart
+    Given the user is on the Product Detail Page
+    When the user selects the colour "<colour>"
+    And the user selects the size "<size>"
+    And the user clicks on the "<buttonName>" button
+    Then the product with colour "<colour>" and size "<size>" should be added to the cart
+    And the cart icon should show <itemCount> item
+    And the user should see a success message confirming the product was added
+
+    Examples:
+      | colour | size | buttonName  | itemCount |
+      | Orange  | M    | Add to Cart | 1         |

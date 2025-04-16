@@ -1,66 +1,56 @@
 package steps;
-
-import factory.DriverFactory;
 import hooks.Hooks;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
-import pages.AccountPage;
 import pages.AddToCartPage;
-import pages.HomePage;
 
 public class AddToCartSteps {
 
     WebDriver driver;
-    AccountPage accountPage;
-    HomePage homePage;
     AddToCartPage addToCartPage;
 
-    public AddToCartSteps () {
-        this.driver = Hooks.getDriver();
+    public AddToCartSteps() {
+        this.driver = Hooks.getDriver(); // or however you are passing the WebDriver
         this.addToCartPage = new AddToCartPage(driver);
-        this.accountPage = new AccountPage(driver);
     }
 
-    @Given("User should be on the account page")
-    public void user_should_be_on_account_page() {
-        Assert.assertTrue(accountPage.isAccountHeaderVisible(), "User is not on the Account page");
+    @Given("the user is on the Product Detail Page")
+    public void the_user_is_on_the_product_detail_page() {
+        driver.get("https://magento.softwaretestingboard.com/men/tops-men/jackets-men.html");
+        addToCartPage.openFirstProductFromListing(); // Clicks the first product
     }
 
-    @When("User navigates to the homepage")
-    public void user_navigates_to_homepage() {
-        accountPage.clickHomeIcon(); // or use driver.get("https://yourstore.com/");
+    @When("the user selects the colour {string}")
+    public void user_selects_colour(String colour) {
+        addToCartPage.selectColor(colour);
     }
 
-    @When("User selects a product from the listing")
-    public void select_product_from_listing() {
-        addToCartPage.openFirstProductFromListing();
-    }
-
-    @When("User selects size {string}")
+    @When("the user selects the size {string}")
     public void user_selects_size(String size) {
         addToCartPage.selectSize(size);
     }
 
-    @When("User selects color {string}")
-    public void user_selects_color(String color) {
-        addToCartPage.selectColor(color);
+    @When("the user clicks on the {string} button")
+    public void user_clicks_on_button(String buttonName) {
+        addToCartPage.clickAddToCart();  // `buttonName` is for Gherkin readability
     }
 
-    @When("User clicks on Add to Cart button")
-    public void user_clicks_on_add_to_cart_button() {
-        addToCartPage.clickAddToCart();
+    @Then("the product with colour {string} and size {string} should be added to the cart")
+    public void verify_product_added(String colour, String size) {
+        String successMsg = addToCartPage.getSuccessMessage();
+        Assert.assertTrue(successMsg.contains("You added"));
     }
 
-    @Then("Product should be added with color {string} and size {string}")
-    public void verify_product_added(String color, String size) {
-        Assert.assertTrue(addToCartPage.getSuccessMessage().contains("You added"), "Success message not found");
+    @Then("the cart icon should show {int} item")
+    public void cart_icon_should_show_item(int itemCount) {
+        Assert.assertEquals(String.valueOf(itemCount), addToCartPage.getCartItemCount());
     }
 
-    @Then("Cart icon should show {int} item")
-    public void cart_icon_should_show_item(int count) {
-        Assert.assertEquals(addToCartPage.getCartItemCount(), String.valueOf(count), "Incorrect cart count");
+    @Then("the user should see a success message confirming the product was added")
+    public void user_should_see_success_message() {
+        Assert.assertTrue(addToCartPage.getSuccessMessage().contains("You added"));
     }
 }

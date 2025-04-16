@@ -17,40 +17,44 @@ public class AddToCartPage {
 
     // Locators
     private final By productLink = By.cssSelector("li.product-item a.product-item-link");
-    private final By addToCartButton = By.id("product-addtocart-button");
-    private final By successMessage = By.cssSelector(".message-success");
-    private final By cartItemCount = By.cssSelector("span.counter-number");
 
-    // Dynamic Locators
-    private By colorOption(String color) {
-        return By.xpath(String.format("//div[@option-label='%s']", color));
-    }
+// private By sizeOption(String size) {
+// return By.xpath(String.format("//div[contains(@class,'swatch-option text')]/div[@option-label='%s']", size));
+// }
 
     private By sizeOption(String size) {
         return By.xpath(String.format("//div[@option-label='%s']", size));
     }
 
-    // Utility methods
+// private By colorOption(String color) {
+// return By.xpath(String.format("//div[contains(@class,'swatch-option color')]/div[@option-label='%s']", color));
+// }
+
+    private By colorOption(String color) {
+        return By.xpath(String.format("//div[@option-label='%s']", color));
+    }
+
+    private final By addToCartButton = By.id("product-addtocart-button");
+    private final By successMessage = By.cssSelector(".message-success");
+    private final By cartItemCount = By.cssSelector("span.counter-number");
+
+    // Wait helpers
     private WebElement waitForElement(By locator) {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
         WebElement element = wait.until(ExpectedConditions.presenceOfElementLocated(locator));
-        scrollIntoView(element);
-        wait.until(ExpectedConditions.elementToBeClickable(locator));
-        return element;
+
+        // Scroll with extra padding so it's centered in viewport
+        ((JavascriptExecutor) driver).executeScript(
+                "arguments[0].scrollIntoView({block: 'center', inline: 'nearest'});", element
+        );
+
+        // Wait for clickable AFTER scrolling
+        return wait.until(ExpectedConditions.elementToBeClickable(locator));
     }
 
     private WebElement waitForVisibleElement(By locator) {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
-        scrollIntoView(element);
-        return element;
-    }
-
-    private void scrollIntoView(WebElement element) {
-        try {
-            ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView({block: 'center'});", element);
-            Thread.sleep(300); // give scroll time to settle
-        } catch (InterruptedException | JavascriptException ignored) {}
+        return wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
     }
 
     // Actions
@@ -58,12 +62,12 @@ public class AddToCartPage {
         waitForElement(productLink).click();
     }
 
-    public void selectColor(String color) {
-        waitForElement(colorOption(color)).click();
-    }
-
     public void selectSize(String size) {
         waitForElement(sizeOption(size)).click();
+    }
+
+    public void selectColor(String color) {
+        waitForElement(colorOption(color)).click();
     }
 
     public void clickAddToCart() {
