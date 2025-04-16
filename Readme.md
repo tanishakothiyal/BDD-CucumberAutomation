@@ -18,7 +18,24 @@ This repository contains a BDD-based test automation framework built using **Jav
 
 ## 📁 Project Structure
 
-bdd-framework/ ├── src/ │ ├── main/ │ │ └── java/ │ │ └── pages/ # Page classes (e.g., LoginPage, AddToCartPage) │ ├── test/ │ │ └── java/ │ │ ├── steps/ # Step Definitions (AddToCartSteps, etc.) │ │ ├── hooks/ # Hooks (setup and teardown) │ │ └── runner/ # Test runner class │ └── resources/ │ └── features/ # Gherkin feature files ├── pom.xml # Maven configuration └── README.md # You're here :)
+bdd‑qa‑framework/
+├── pom.xml
+├── src/
+│   ├── main/
+│   │   └── java/
+│   │       └── pages/                  # POM classes
+│   ├── test/
+│       ├── java/
+│       │   ├── steps/                 # Cucumber step defs
+│       │   ├── runners/               # TestNG & Cucumber runners
+│       │   └── api/                   # RestAssured tests
+│       └── resources/
+│           └── features/              # .feature files
+└── .github/
+    └── workflows/
+        └── ci.yml                     # GitHub Actions pipeline
+└── README.md
+
 ## 🛠 How to Run the Tests
 
 ### 💻 Using IntelliJ:
