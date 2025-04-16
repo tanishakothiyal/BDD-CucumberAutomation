@@ -27,16 +27,16 @@ bdd‑qa‑framework/
 │   ├── test/
 │       ├── java/
 │       │   ├── steps/                 # Cucumber step defs
-│       │   ├── runners/               # TestNG & Cucumber runners
+│       │   ├── runners/# TestNG & Cucumber runners
 │       │   └── api/                   # RestAssured tests
 │       └── resources/
 │           └── features/              # .feature files
 └── .github/
-    └── workflows/
-        └── ci.yml                     # GitHub Actions pipeline
+└── workflows/
+└── ci.yml                     # GitHub Actions pipeline
 └── README.md
 
-## 🛠 How to Run the Tests
+
 
 ### 💻 Using IntelliJ:
 1. Open project in IntelliJ
@@ -57,5 +57,8 @@ ChromeDriver in your system path
 
 Run the tests and enjoy automation magic 🔥
 
+👩‍💻 Author
+
+Tanisha Kothiyal 📧 tanishakothiyal@gmail.com
 
  
