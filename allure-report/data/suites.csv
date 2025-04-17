@@ -1,0 +1,14 @@
+"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
+"","0","setUpClass","Default Suite","Mon Apr 14 20:11:29 IST 2025","broken","Mon Apr 14 20:11:29 IST 2025","runners.TestRunner","AutomationPractice","runners.TestRunner","setUpClass"
+"Verify the products list API returns a valid response","1837","testGetProducts","Surefire suite","Thu Apr 17 13:29:16 IST 2025","failed","Thu Apr 17 13:29:18 IST 2025","api.ProductAPITest","Surefire test","api.ProductAPITest","testGetProducts"
+"","6991","Runs Cucumber Scenarios","Default Suite","Mon Apr 14 15:59:40 IST 2025","passed","Mon Apr 14 15:59:47 IST 2025","runners.TestRunner","AutomationPractice","runners.TestRunner","runScenario"
+"  As a customer
+  I want to select product variants like colour and size
+  So that I can add the specific product I want to the cart","13826","User selects colour and size and adds product to cart","","Wed Apr 16 14:20:03 IST 2025","passed","Wed Apr 16 14:20:17 IST 2025","","Add to cart with product variants","User selects colour and size and adds product to cart",""
+"","7005","Valid user logs in successfully","","Thu Apr 17 13:29:29 IST 2025","passed","Thu Apr 17 13:29:36 IST 2025","","User Login","Valid user logs in successfully",""
+"","12857","Runs Cucumber Scenarios","Default Suite","Mon Apr 14 03:28:41 IST 2025","broken","Mon Apr 14 03:28:54 IST 2025","runners.TestRunner","AutomationPractice","runners.TestRunner","runScenario"
+"","2142","User selects colour and size and adds product to cart","","Wed Apr 16 22:17:58 IST 2025","broken","Wed Apr 16 22:18:00 IST 2025","","Add to Cart Functionality","User selects colour and size and adds product to cart",""
+"  As a customer
+  I want to select product variants like colour and size
+  So that I can add the specific product I want to the cart","10545","User selects colour and size and adds product to cart","","Thu Apr 17 13:29:18 IST 2025","passed","Thu Apr 17 13:29:29 IST 2025","","Add to cart with product variants","User selects colour and size and adds product to cart",""
+"","79","Runs Cucumber Scenarios","Default Suite","Mon Apr 14 15:58:23 IST 2025","broken","Mon Apr 14 15:58:23 IST 2025","runners.TestRunner","AutomationPractice","runners.TestRunner","runScenario"

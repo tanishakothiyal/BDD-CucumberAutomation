@@ -1,0 +1,6 @@
+steps/LoginSteps.class
+steps/AddToCartSteps.class
+api/BaseAPITest.class
+runners/TestRunner.class
+hooks/Hooks.class
+api/ProductAPITest.class

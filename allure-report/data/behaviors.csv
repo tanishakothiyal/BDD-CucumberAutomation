@@ -1,0 +1,6 @@
+"BROKEN","EPIC","FAILED","FEATURE","PASSED","SKIPPED","STORY","UNKNOWN"
+"3","","0","","1","0","","0"
+"0","API Automation","1","Product APIs","0","0","Get Product List","0"
+"0","","0","Add to cart with product variants","2","0","User selects colour and size and adds product to cart","0"
+"0","","0","User Login","1","0","Valid user logs in successfully","0"
+"1","","0","Add to Cart Functionality","0","0","User selects colour and size and adds product to cart","0"

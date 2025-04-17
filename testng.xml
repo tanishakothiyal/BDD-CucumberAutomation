@@ -1,0 +1,18 @@
+<suite name="Automation Test Suite" parallel="tests" thread-count="2">
+
+    <listeners>
+        <listener class-name="io.qameta.allure.testng.AllureTestNg"/>
+    </listeners>
+
+    <test name="API Tests">
+        <classes>
+            <class name="api.ProductAPITest"/>
+            <!-- other API test classes -->
+        </classes>
+    </test>
+
+    <test name="UI Tests">
+        <!-- your UI test classes -->
+    </test>
+
+</suite>
