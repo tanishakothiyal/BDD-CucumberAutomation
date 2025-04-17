@@ -22,13 +22,13 @@ jobs:
 
       - name: Install Allure Commandline
         run: |
-          sudo apt-add-repository ppa:qameta/allure -y
-          sudo apt-get update
-          sudo apt-get install allure -y
+          curl -o allure-2.21.0.tgz -L https://github.com/allure-framework/allure2/releases/download/2.21.0/allure-2.21.0.tgz
+          tar -zxvf allure-2.21.0.tgz
+          sudo mv allure-2.21.0 /opt/allure
+          sudo ln -s /opt/allure/bin/allure /usr/bin/allure
 
       - name: Build project and run tests
         run: mvn clean test
-
       - name: Generate Allure Report
         run: |
           allure generate allure-results --clean -o allure-report
