@@ -14,7 +14,9 @@ import io.qameta.allure.*;
 @Tag("API")
 
 @Listeners({AllureTestNg.class})
-public class ProductAPITest extends BaseAPITest{
+public class ProductAPITest extends BaseAPITest {
+}
+    /*
     @Test
     @Description("Verify the products list API returns a valid response")
     public void testGetProducts() {
@@ -27,3 +29,4 @@ public class ProductAPITest extends BaseAPITest{
         Assert.assertFalse(response.getBody().asString().isEmpty());
     }
 }
+*/

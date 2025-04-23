@@ -20,11 +20,12 @@ public class LoginSteps {
 
     @When("User enters valid credentials")
     public void user_enters_valid_credentials() {
-        loginPage.login("simplynooffence@gmail.com", "test@123");  // Replace with valid test account
+        loginPage.login("simplynooffence@gmail.com", "Test@123");  // Replace with valid test account
     }
 
     @Then("User should be logged in and see their dashboard")
     public void user_should_see_dashboard() {
         assertTrue(driver.getPageSource().contains("My Account") || driver.getCurrentUrl().contains("customer/account"));
+        driver.quit();
     }
 }

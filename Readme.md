@@ -14,30 +14,6 @@ This repository contains a BDD-based test automation framework built using **Jav
 - 📋 Page Object Model
 
 
----
-
-## 📁 Project Structure
-
-bdd‑qa‑framework/
-├── pom.xml
-├── src/
-│   ├── main/
-│   │   └── java/
-│   │       └── pages/                  # POM classes
-│   ├── test/
-│       ├── java/
-│       │   ├── steps/                 # Cucumber step defs
-│       │   ├── runners/# TestNG & Cucumber runners
-│       │   └── api/                   # RestAssured tests
-│       └── resources/
-│           └── features/              # .feature files
-└── .github/
-└── workflows/
-└── ci.yml                     # GitHub Actions pipeline
-└── README.md
-
-
-
 ### 💻 Using IntelliJ:
 1. Open project in IntelliJ
 2. Right-click on `TestRunner.java` → **Run**
